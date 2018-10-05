@@ -14,6 +14,7 @@ public:
 
 	//speed
 	float speed;
+	//player height is the pos.y
 
 //functions
 

@@ -1,9 +1,8 @@
-#include "Pickup.h"
+#include "Enemy.h"
 
-
-void pickup::update(float deltaTime, float screenX, float screenY)
+void enemy::update(float deltaTime, float screenX, float screenY)
 {
-	if (preSetMovement == 1) 
+	if (preSetMovement == 1)
 	{
 		pos.y -= speed;
 
@@ -12,7 +11,7 @@ void pickup::update(float deltaTime, float screenX, float screenY)
 			pos.y = screenY + radius;
 		}
 	}
-	else if (preSetMovement == 2) 
+	else if (preSetMovement == 2)
 	{
 		pos.y += speed;
 
@@ -39,13 +38,12 @@ void pickup::update(float deltaTime, float screenX, float screenY)
 			pos.x = radius * -1;
 		}
 	}
-
 }
 
-void pickup::draw()
+void enemy::draw()
 {
 	if (enabled)
 	{
-		DrawCircle(pos.x, pos.y, radius, GOLD);
+		DrawCircle(pos.x, pos.y, radius, RED);
 	}
 }
