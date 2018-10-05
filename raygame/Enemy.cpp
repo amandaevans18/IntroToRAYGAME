@@ -1,5 +1,15 @@
 #include "Enemy.h"
 
+enemy::enemy()
+{
+	pos = {(float)GetRandomValue(100, 750), (float)GetRandomValue(100, 400)};
+	radius = GetRandomValue(10.0f, 20.0f);
+	speed = GetRandomValue(1.0f, 5.0f);
+	value = GetRandomValue(1, 5);
+	preSetMovement = GetRandomValue(1, 4);
+	enabled = true;
+}
+
 void enemy::update(float deltaTime, float screenX, float screenY)
 {
 	if (preSetMovement == 1)
@@ -44,6 +54,6 @@ void enemy::draw()
 {
 	if (enabled)
 	{
-		DrawCircle(pos.x, pos.y, radius, RED);
+		DrawCircleGradient(pos.x, pos.y, radius, BLACK,RED);
 	}
 }

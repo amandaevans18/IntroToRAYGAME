@@ -19,7 +19,7 @@ public:
 	// is it there?
 	bool enabled;
 
-
+	pickup();
 	void update(float deltaTime, float screenX, float screenY);
 
 	void draw();

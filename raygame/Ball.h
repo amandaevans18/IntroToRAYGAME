@@ -15,7 +15,7 @@ public:
 	//speed
 	float speed;
 	//player height is the pos.y
-
+	bool hasMoved = false;
 //functions
 
 	void update(float deltaTime, float screenX, float screenY);

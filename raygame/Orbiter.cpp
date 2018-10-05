@@ -1,14 +1,17 @@
 #include "Orbiter.h"
-#include <math.h>   
+#include <math.h> 
+//MAKES THEM ORBITES ORBIT
 void orbiter::update(float deltaTime, float screenX, float screenY, Vector2 player)
 {
-	posOfOrbiter = { player.x + (float)(cos(deltaTime * distanceFromPlayer) * 100),player.y + (float)(sin(deltaTime * distanceFromPlayer) * 100) };
+	//sin and cos together make a circle they follow that circle
+	posOfOrbiter = { player.x + (float)(cos(deltaTime * speed) * distanceFromPlayer),
+		player.y + (float)(sin(deltaTime * speed) * distanceFromPlayer) };
 }
 
 void orbiter::draw()
 {
 	if (enabled) 
 	{
-		DrawCircle(posOfOrbiter.x, posOfOrbiter.y, radius, GOLD);
+		DrawCircle(posOfOrbiter.x, posOfOrbiter.y, radius, color);
 	}
 }

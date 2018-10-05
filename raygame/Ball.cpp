@@ -2,17 +2,11 @@
 
 void ball::update(float deltaTime, float screenX, float screenY)
 {
-	//jumping
-	float maxJump = 10;
-
-	//intial pos of y
-	int posOfY = pos.y;
-	//the player will jump!
 	//need to add an if player is on the ground
 	if (IsKeyDown(KEY_W))
 	{
 		pos.y -= speed * deltaTime;
-
+		hasMoved = true;
 		if (pos.y < radius * -1)
 		{
 			pos.y = screenY + radius;
@@ -23,6 +17,7 @@ void ball::update(float deltaTime, float screenX, float screenY)
 	if (IsKeyDown(KEY_S))
 	{
 		pos.y += speed * deltaTime;
+		hasMoved = true;
 		if (pos.y > screenY + radius)
 		{
 			pos.y = radius * -1;
@@ -33,7 +28,7 @@ void ball::update(float deltaTime, float screenX, float screenY)
 	{
 		//stoping the player from moving that way
 		pos.x -= speed * deltaTime;
-
+		hasMoved = true;
 		if (pos.x < radius * -1)
 		{
 			pos.x = screenX + radius;
@@ -43,7 +38,7 @@ void ball::update(float deltaTime, float screenX, float screenY)
 	if (IsKeyDown(KEY_D))
 	{
 		pos.x += speed * deltaTime;
-
+		hasMoved = true;
 		if (pos.x > screenX + radius)
 		{
 			pos.x = radius * -1;
@@ -53,5 +48,5 @@ void ball::update(float deltaTime, float screenX, float screenY)
 
 void ball::draw() 
 {
-	DrawCircle(pos.x, pos.y, radius, RED);
+	DrawCircleGradient(pos.x, pos.y, radius, YELLOW,ORANGE);
 }
